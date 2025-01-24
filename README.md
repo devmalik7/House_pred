@@ -123,14 +123,6 @@ pip install pandas numpy matplotlib seaborn scikit-learn
 
 ---
 
-## Contributors
-
-- [Your Name] (replace with your name or team members)
-
-Feel free to reach out for suggestions or collaborations!
-
----
-
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
