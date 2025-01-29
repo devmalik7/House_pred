@@ -6,21 +6,23 @@ from joblib import load
 # Load the trained model (ensure it's in the same directory)
 model = load("trained_model.joblib")
 
-# Streamlit App Title
+# Streamlit App Title with Emoji
 st.title("🏡 House Price Prediction")
+st.image("https://www.realtor.com/research/wp-content/uploads/sites/3/2020/06/houses-image.jpg", use_column_width=True)
+st.write("🔍 Enter the details below to get an estimated house price!")
 
-# User Input Features
-MSSubClass = st.number_input("MSSubClass", min_value=0, step=1)
-MSZoning = st.selectbox("MSZoning", options=["RL", "RM", "C (all)", "FV", "RH"])
-LotArea = st.number_input("LotArea", min_value=500, step=50)
-LotConfig = st.selectbox("LotConfig", options=["Inside", "FR2", "Corner", "CulDSac", "FR3"])
-BldgType = st.selectbox("BldgType", options=["1Fam", "2fmCon", "Duplex", "TwnhsE", "Twnhs"])
-OverallCond = st.slider("Overall Condition", min_value=1, max_value=10, step=1)
-YearBuilt = st.number_input("Year Built", min_value=1800, max_value=2025, step=1)
-YearRemodAdd = st.number_input("Year Remodeled", min_value=1800, max_value=2025, step=1)
-Exterior1st = st.selectbox("Exterior First Material", options=["VinylSd", "HdBoard", "MetalSd", "Wd Sdng", "Plywood", "CemntBd"])
-BsmtFinSF2 = st.number_input("BsmtFinSF2", min_value=0, step=50)
-TotalBsmtSF = st.number_input("Total Basement SF", min_value=0, step=50)
+# User Input Features with Icons
+MSSubClass = st.number_input("🏠 MSSubClass", min_value=0, step=1)
+MSZoning = st.selectbox("📌 MSZoning", options=["RL", "RM", "C (all)", "FV", "RH"])
+LotArea = st.number_input("📏 LotArea (sq ft)", min_value=500, step=50)
+LotConfig = st.selectbox("🏡 LotConfig", options=["Inside", "FR2", "Corner", "CulDSac", "FR3"])
+BldgType = st.selectbox("🏗️ Building Type", options=["1Fam", "2fmCon", "Duplex", "TwnhsE", "Twnhs"])
+OverallCond = st.slider("🔧 Overall Condition", min_value=1, max_value=10, step=1)
+YearBuilt = st.number_input("📅 Year Built", min_value=1800, max_value=2025, step=1)
+YearRemodAdd = st.number_input("🔄 Year Remodeled", min_value=1800, max_value=2025, step=1)
+Exterior1st = st.selectbox("🛠️ Exterior Material", options=["VinylSd", "HdBoard", "MetalSd", "Wd Sdng", "Plywood", "CemntBd"])
+BsmtFinSF2 = st.number_input("🏗️ Basement Fin SF2", min_value=0, step=50)
+TotalBsmtSF = st.number_input("📐 Total Basement SF", min_value=0, step=50)
 
 # Convert categorical features to numerical using label encoding
 encoding_map = {
@@ -44,10 +46,11 @@ input_data = pd.DataFrame({
     "TotalBsmtSF": [TotalBsmtSF]
 })
 
-# Prediction Button
-if st.button("Predict Price"):
+# Prediction Button with Animation
+if st.button("🚀 Predict Price"):
     try:
         prediction = model.predict(input_data)
-        st.success(f"Estimated House Price: ${prediction[0]:,.2f}")
+        st.success(f"💰 Estimated House Price: ${prediction[0]:,.2f}")
+        st.balloons()
     except ValueError as e:
-        st.error(f"Error in prediction: {str(e)}. Please check the input values.")
+        st.error(f"⚠️ Error in prediction: {str(e)}. Please check the input values.")
