@@ -1,5 +1,7 @@
 # House Price Prediction
 
+## App link = https://housepred-tlkhwheulqbzr8rhpjyu7h.streamlit.app/?embed_options=dark_theme
+
 ## Project Overview
 
 This project is a machine learning pipeline designed to predict house prices based on various features such as location, lot size, number of rooms, and other attributes. The dataset used for this project is the `HousePricePrediction.xlsx` file, which contains detailed data about houses, including both numeric and categorical variables.
