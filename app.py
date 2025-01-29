@@ -8,7 +8,7 @@ model = load("trained_model.joblib")
 
 # Streamlit App Title with Emoji
 st.title("🏡 House Price Prediction")
-st.image("https://www.realtor.com/research/wp-content/uploads/sites/3/2020/06/houses-image.jpg", use_column_width=True)
+st.image("https://www.realtor.com/research/wp-content/uploads/sites/3/2020/06/houses-image.jpg",  use_container_width=True)
 st.write("🔍 Enter the details below to get an estimated house price!")
 
 # User Input Features with Icons
