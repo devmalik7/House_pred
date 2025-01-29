@@ -14,20 +14,5 @@ num_rooms = st.slider("Number of Rooms", 1, 10, 3)
 
 # Prediction Button
 if st.button("Predict Price"):
-   input_data = pd.DataFrame({
-    "MSSubClass": [MSSubClass],
-    "MSZoning": [MSZoning],
-    "LotArea": [LotArea],
-    "LotConfig": [LotConfig],
-    "BldgType": [BldgType],
-    "OverallCond": [OverallCond],
-    "YearBuilt": [YearBuilt],
-    "YearRemodAdd": [YearRemodAdd],
-    "Exterior1st": [Exterior1st],
-    "BsmtFinSF2": [BsmtFinSF2],
-    "TotalBsmtSF": [TotalBsmtSF]
-})
-
-prediction = model.predict(input_data)
-
-    st.success(f"Estimated House Price: ${prediction[0]:,.2f}")
+    prediction = model.predict([[lot_size, num_rooms]])
+        st.success(f"Estimated House Price: ${prediction[0]:,.2f}")
