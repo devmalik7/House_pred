@@ -15,4 +15,4 @@ num_rooms = st.slider("Number of Rooms", 1, 10, 3)
 # Prediction Button
 if st.button("Predict Price"):
     prediction = model.predict([[lot_size, num_rooms]])
-        st.success(f"Estimated House Price: ${prediction[0]:,.2f}")
+    st.success(f"Estimated House Price: ${prediction[0]:,.2f}")
